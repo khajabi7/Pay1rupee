@@ -1,0 +1,23 @@
+<p>payment works!</p>
+
+<div class="payment-container">
+  <h2>Pay 1 Rupee to See the Count</h2>
+
+  <h2>Welcome to Payment Page</h2>
+<p>Scan the QR code below to pay ₹1</p>
+
+<!-- QR Code -->
+<qrcode [qrdata]="upiLink" [width]="200" [errorCorrectionLevel]="'M'"></qrcode>
+
+<!-- <p>Or click below to pay using UPI apps:</p>
+<a [href]="upiLink" target="_blank">Pay Now</a> -->
+
+<h3> OR Pay via UPI</h3>
+
+  <button (click)="initiatePayment()">Pay ₹1</button>
+
+  <p *ngIf="upiLink">Or click below to pay using UPI apps:</p>
+  <a *ngIf="upiLink" [href]="upiLink" target="_blank">Pay Now</a>
+
+  <h3>Total Payments: {{ totalCount }}</h3>
+</div>
